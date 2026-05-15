@@ -1,0 +1,379 @@
+/* --- GLOBAL VARIABLES --- */
+:root {
+    --primary: #8b5cf6;       /* Modern Violet */
+    --accent: #10b981;        /* Emerald Green for Agri/Tech balance */
+    --dark: #020617;          /* Deep Midnight Blue background */
+    --text-main: #f8fafc;     /* Near white for readability */
+    --text-dim: #94a3b8;      /* Muted slate for descriptions */
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- RESET & BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- DYNAMIC BACKGROUND --- */
+.bg-mesh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: 
+        radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+}
+
+/* --- NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8%;
+    align-items: center;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.btn-hire {
+    background: white;
+    color: var(--dark);
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.btn-hire:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    padding: 100px 5% 60px;
+    text-align: center;
+}
+
+.badge {
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.main-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin: 25px 0;
+    font-weight: 800;
+}
+
+.bold-gradient {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- DASHBOARD QUICK LINKS --- */
+.dashboard {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.dash-box {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 15px 25px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: var(--transition);
+    text-align: left;
+    min-width: 170px;
+}
+
+.dash-box:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: var(--primary);
+    box-shadow: 0 15px 30px rgba(139, 92, 246, 0.1);
+}
+
+.dash-label {
+    display: block;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    color: #64748b;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.dash-val {
+    display: block;
+    font-size: 0.95rem;
+    color: white;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* --- SECTION SHARED STYLES --- */
+.section {
+    padding: 80px 8%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #64748b;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+
+.glass-card, .skill-card, .glass-project {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 28px;
+    transition: var(--transition);
+}
+
+/* --- PROFESSIONAL PROFILE --- */
+.bio-content p {
+    color: #cbd5e1;
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+}
+
+.focus-areas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border);
+}
+
+.focus-item {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.focus-item span {
+    color: var(--primary);
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* --- SKILLS --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.skill-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.skill-card h4 {
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.skill-card p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+/* --- PROJECTS & AI TRACK --- */
+.project-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.glass-project:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary);
+}
+
+.highlight {
+    border-left: 5px solid var(--primary);
+}
+
+.tag {
+    color: var(--primary);
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+    letter-spacing: 1px;
+}
+
+.glass-project h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+/* --- EDUCATION --- */
+.edu-timeline {
+    margin-top: 20px;
+}
+
+.edu-item {
+    padding-bottom: 40px;
+    border-left: 2px solid var(--border);
+    padding-left: 30px;
+    position: relative;
+}
+
+.edu-item:last-child {
+    border-left: 2px solid transparent;
+}
+
+.edu-item::before {
+    content: "";
+    position: absolute;
+    left: -9px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: var(--dark);
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.year {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.inst-name {
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.inst-meta {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 80px 20px;
+    border-top: 1px solid var(--border);
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 5%;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .hero {
+        padding: 60px 5%;
+    }
+    
+    .main-title {
+        font-size: 2.2rem;
+    }
+    
+    .section {
+        padding: 40px 6%;
+    }
+    
+    .dashboard {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .dash-box {
+        min-width: 100%;
+    }
+    
+    .focus-areas {
+        grid-template-columns: 1fr;
+    }
+    
+    .glass-card, .glass-project {
+        padding: 30px 20px;
+    }
+}
